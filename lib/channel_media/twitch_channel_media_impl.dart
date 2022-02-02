@@ -7,6 +7,8 @@ import 'package:unofficial_twitch_open_api/channel_media/model/open_api_get_vide
 import 'package:unofficial_twitch_open_api/channel_media/twitch_channel_media.dart';
 import 'package:unofficial_twitch_open_api/core/open_api_channel_constants.dart';
 
+/// Implementation of the class [TwitchChannelMedia]. To make it works,
+/// it's needed the [token] for the authenticated resources and the [clientId].
 class TwitchChannelMediaImpl extends TwitchChannelMedia {
   TwitchChannelMediaImpl({
     String? token,
@@ -34,7 +36,7 @@ class TwitchChannelMediaImpl extends TwitchChannelMedia {
     required String broadcasterId,
   }) {
     return client.makeGet(
-        OpenApiChannelConstants.getChannelEmotesEndpoint,
+      OpenApiChannelConstants.getChannelEmotesEndpoint,
       convertBodyFunc: (response) =>
           OpenApiGetChannelMediaResponse.fromHttpResponse(response),
       queryParameters: {

@@ -1,6 +1,6 @@
 name: unofficial_twitch_open_api
 description: Wrapper for the newest Twitch API. It returns informations about channels, media, search and game
-version: 0.0.1
+version: 0.0.2
 homepage: https://www.federicoviceconti.com
 
 environment:
@@ -11,7 +11,7 @@ dependencies:
   flutter:
     sdk: flutter
 
-  unofficial_twitch_http: ^0.0.1
+  unofficial_twitch_http: ^0.0.2
   http: ^0.13.4
 
 dev_dependencies:

@@ -6,6 +6,8 @@ import 'package:unofficial_twitch_open_api/search/model/open_api_search_channels
 import 'package:unofficial_twitch_open_api/search/model/open_api_search_users_response.dart';
 import 'package:unofficial_twitch_open_api/search/twitch_search.dart';
 
+/// Implementation of the class [TwitchSearch]. To make it works, it's needed
+/// the [token] for the authenticated resources and the [clientId]
 class TwitchSearchImpl extends TwitchSearch {
   TwitchSearchImpl({
     required String? token,

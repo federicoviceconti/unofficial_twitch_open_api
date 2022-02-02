@@ -5,6 +5,8 @@ import 'package:unofficial_twitch_open_api/search/model/open_api_search_categori
 import 'package:unofficial_twitch_open_api/search/model/open_api_search_channels_response.dart';
 import 'package:unofficial_twitch_open_api/search/model/open_api_search_users_response.dart';
 
+/// You can find methods to search all the information that you need about
+/// channels, categories, user or streams
 abstract class TwitchSearch extends BaseTwitchOpenApi {
   TwitchSearch(String? token, String? clientId) : super(token, clientId);
 

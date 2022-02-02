@@ -6,6 +6,8 @@ import 'package:unofficial_twitch_open_api/channel_information/model/open_api_ch
 import 'package:unofficial_twitch_open_api/channel_information/twitch_channel_information.dart';
 import 'package:unofficial_twitch_open_api/core/open_api_channel_constants.dart';
 
+/// Implementation of the class [TwitchChannelInformation]. To make it works,
+/// it's needed the [token] for the authenticated resources and the [clientId].
 class TwitchChannelInformationImpl extends TwitchChannelInformation {
   TwitchChannelInformationImpl({
     required String? token,
@@ -29,7 +31,8 @@ class TwitchChannelInformationImpl extends TwitchChannelInformation {
   }
 
   @override
-  Future<HttpResult<OpenApiChannelStreamScheduleResponse>> getChannelStreamSchedule({
+  Future<HttpResult<OpenApiChannelStreamScheduleResponse>>
+      getChannelStreamSchedule({
     required String broadcasterId,
   }) {
     return client.makeGet(

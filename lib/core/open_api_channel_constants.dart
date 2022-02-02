@@ -1,3 +1,5 @@
+/// This class contains all the endpoints and params needed for all the
+/// requests
 class OpenApiChannelConstants {
   static const String channelInformationEndpoint = '/helix/channels';
   static const String channelStreamScheduleEndpoint = '/helix/schedule';

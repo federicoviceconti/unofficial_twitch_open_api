@@ -8,15 +8,21 @@ import 'package:unofficial_twitch_open_api/game/twitch_game_impl.dart';
 import 'package:unofficial_twitch_open_api/search/twitch_search.dart';
 import 'package:unofficial_twitch_open_api/search/twitch_search_impl.dart';
 
+/// Utility class for the usage of the Twitch APIs. For the usage, check the
+/// README.md.
 class TwitchManagerOpenApi {
+  /// The instance generated via the factory
   static TwitchManagerOpenApi? _instance;
 
+  /// Client id of your Twitch app, check the README.md for the configuration
   String? clientId;
 
+  /// Private constructor, which is needed the [clientId] to work correctly
   TwitchManagerOpenApi._({
     required this.clientId,
   });
 
+  /// Factory method, it's needed the [clientId] to work
   factory TwitchManagerOpenApi({
     required String? clientId,
   }) {
@@ -24,14 +30,14 @@ class TwitchManagerOpenApi {
     return _instance!;
   }
 
-  /// Return an instance of subclass [BaseTwitchOpenApi]
-  /// Class type available:
-  /// - [TwitchChannelInformation]
-  /// - [TwitchChannelMedia]
-  /// - [TwitchSearch]
-  /// - [TwitchGame]
+  /// Return an instance of subclass [BaseTwitchOpenApi]. The instances
+  /// available are:
+  /// - [TwitchChannelInformation] returns generic info about the streamers
+  /// channel
+  /// - [TwitchChannelMedia] returns all media related data like video or images
+  /// - [TwitchSearch] allows to search information about streams
+  /// - [TwitchGame] get information about game categories
   ///
-  /// @return subclass of [BaseTwitchOpenApi]
   T of<T extends BaseTwitchOpenApi>({required String? bearerToken}) {
     switch (T) {
       case TwitchChannelInformation:
