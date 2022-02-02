@@ -37,19 +37,18 @@ class OpenApiChannelUserFollowResponse extends BaseHttpResponse {
     if (data != null) {
       for (var item in data) {
         final result = UserFollow.fromJson(item);
-        if(result != null) {
+        if (result != null) {
           userFollowList.add(result);
         }
       }
     }
 
     return OpenApiChannelUserFollowResponse(
-      userFollowList: userFollowList,
-      message: json?['message'],
-      status: json?['status'],
-      pagination: json?['pagination']?['cursor'],
-      total: json?['total']
-    );
+        userFollowList: userFollowList,
+        message: json?['message'],
+        status: json?['status'],
+        pagination: json?['pagination']?['cursor'],
+        total: json?['total']);
   }
 }
 
@@ -71,7 +70,7 @@ class UserFollow {
   });
 
   static UserFollow? fromJson(Map<String, dynamic>? json) {
-    if(json == null) return null;
+    if (json == null) return null;
 
     return UserFollow(
       fromId: json['from_id'],

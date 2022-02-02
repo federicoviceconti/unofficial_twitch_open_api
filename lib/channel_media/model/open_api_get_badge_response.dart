@@ -80,14 +80,14 @@ class VersionData {
   });
 
   static List<VersionData> fromJsonList(List<dynamic>? field) {
-    if(field == null) return <VersionData>[];
+    if (field == null) return <VersionData>[];
 
     final List<VersionData> versions = [];
 
     for (var item in field) {
       final result = VersionData.fromJson(item);
 
-      if(result != null) {
+      if (result != null) {
         versions.add(result);
       }
     }
@@ -96,7 +96,7 @@ class VersionData {
   }
 
   static VersionData? fromJson(Map<String, dynamic>? json) {
-    if(json == null) return null;
+    if (json == null) return null;
 
     return VersionData(
       id: json['id'],

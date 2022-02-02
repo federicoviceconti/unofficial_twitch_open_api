@@ -44,7 +44,7 @@ class OpenApiSearchChannelsResponse extends BaseHttpResponse {
   static OpenApiSearchChannelsResponse fromHttpResponse(Response response) {
     final json = jsonDecode(response.body);
 
-    if(json != null) {
+    if (json != null) {
       return OpenApiSearchChannelsResponse.fromJson(json);
     } else {
       return OpenApiSearchChannelsResponse(

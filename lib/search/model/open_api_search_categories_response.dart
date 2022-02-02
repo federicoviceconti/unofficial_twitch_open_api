@@ -13,9 +13,9 @@ class OpenApiSearchCategoriesResponse extends BaseHttpResponse {
     this.searchCategoryList = const [],
     this.pagination,
   }) : super(
-    status: status,
-    message: message,
-  );
+          status: status,
+          message: message,
+        );
 
   static OpenApiSearchCategoriesResponse fromJson(Map<String, dynamic>? json) {
     List? data = json?['data'];
@@ -39,7 +39,7 @@ class OpenApiSearchCategoriesResponse extends BaseHttpResponse {
   static OpenApiSearchCategoriesResponse fromHttpResponse(Response response) {
     final json = jsonDecode(response.body);
 
-    if(json != null) {
+    if (json != null) {
       return OpenApiSearchCategoriesResponse.fromJson(json);
     } else {
       return OpenApiSearchCategoriesResponse(

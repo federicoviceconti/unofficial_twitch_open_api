@@ -36,7 +36,7 @@ class OpenApiSearchUsersResponse extends BaseHttpResponse {
   static OpenApiSearchUsersResponse fromHttpResponse(Response response) {
     final json = jsonDecode(response.body);
 
-    if(json != null) {
+    if (json != null) {
       return OpenApiSearchUsersResponse.fromJson(json);
     } else {
       return OpenApiSearchUsersResponse(

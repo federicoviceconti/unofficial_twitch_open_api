@@ -26,7 +26,7 @@ class OpenApiGetStreamsResponse extends BaseHttpResponse {
       for (var item in data) {
         final convertedItem = StreamData.fromJson(item);
 
-        if(convertedItem != null) {
+        if (convertedItem != null) {
           streamList.add(convertedItem);
         }
       }

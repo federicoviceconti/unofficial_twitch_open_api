@@ -13,9 +13,9 @@ class OpenApiGetGameResponse extends BaseHttpResponse {
     this.gameList = const [],
     this.pagination,
   }) : super(
-    status: status,
-    message: message,
-  );
+          status: status,
+          message: message,
+        );
 
   static OpenApiGetGameResponse fromJson(Map<String, dynamic>? json) {
     List? data = json?['data'];
@@ -39,7 +39,7 @@ class OpenApiGetGameResponse extends BaseHttpResponse {
   static OpenApiGetGameResponse fromHttpResponse(Response response) {
     final json = jsonDecode(response.body);
 
-    if(json != null) {
+    if (json != null) {
       return OpenApiGetGameResponse.fromJson(json);
     } else {
       return OpenApiGetGameResponse(
