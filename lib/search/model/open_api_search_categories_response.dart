@@ -3,6 +3,7 @@ import 'dart:convert';
 import 'package:http/http.dart';
 import 'package:unofficial_twitch_http/models/http_result.dart';
 
+/// Response model for the searchCategories method on [TwitchSearch] class
 class OpenApiSearchCategoriesResponse extends BaseHttpResponse {
   final List<SearchCategory> searchCategoryList;
   final String? pagination;
@@ -17,6 +18,8 @@ class OpenApiSearchCategoriesResponse extends BaseHttpResponse {
           message: message,
         );
 
+  /// Convert the body of the HTTP response into a
+  /// [OpenApiSearchCategoriesResponse] instance
   static OpenApiSearchCategoriesResponse fromJson(Map<String, dynamic>? json) {
     List? data = json?['data'];
 
@@ -36,6 +39,7 @@ class OpenApiSearchCategoriesResponse extends BaseHttpResponse {
     );
   }
 
+  /// Convert the HTTP response into a [OpenApiSearchCategoriesResponse] instance
   static OpenApiSearchCategoriesResponse fromHttpResponse(Response response) {
     final json = jsonDecode(response.body);
 

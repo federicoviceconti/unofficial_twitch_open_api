@@ -8,16 +8,23 @@ import 'package:unofficial_twitch_open_api/core/twitch_open_api_constants.dart';
 /// see how the authentication works, read the at the following link:
 /// https://dev.twitch.tv/docs/authentication
 ///
-/// The [client] instance is used to make the HTTP requests.
+/// As specified on the documentation
+/// (https://dev.twitch.tv/docs/authentication#types-of-tokens):
+/// - Client ID are public and can be shared
+/// - Client ID should be unique for every application and cannot be reused
 abstract class BaseTwitchOpenApi {
+  /// Token used for making authorized requests
   final String? token;
 
+  /// Unique id for each application
   final String? clientId;
 
+  /// Update the token
   set token(String? currentToken) {
     token = currentToken;
   }
 
+  /// Used by the package for making HTTP requests
   TwitchHttpClient get client => TwitchHttpClientImpl(
         environmentBundle: EnvironmentBundle(
           basePath: TwitchOpenApiConstants.baseUrl,

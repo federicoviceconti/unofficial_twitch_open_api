@@ -1,8 +1,9 @@
 import 'dart:convert';
 
-import 'package:unofficial_twitch_http/models/http_result.dart';
 import 'package:http/http.dart';
+import 'package:unofficial_twitch_http/models/http_result.dart';
 
+/// Response model for the methods on [TwitchGame] class
 class OpenApiGetGameResponse extends BaseHttpResponse {
   final List<GameData> gameList;
   final String? pagination;
@@ -17,6 +18,8 @@ class OpenApiGetGameResponse extends BaseHttpResponse {
           message: message,
         );
 
+  /// Convert the body of the HTTP response into a [OpenApiGetGameResponse]
+  /// instance
   static OpenApiGetGameResponse fromJson(Map<String, dynamic>? json) {
     List? data = json?['data'];
 
@@ -36,6 +39,7 @@ class OpenApiGetGameResponse extends BaseHttpResponse {
     );
   }
 
+  /// Convert the HTTP response into a [OpenApiGetGameResponse] instance
   static OpenApiGetGameResponse fromHttpResponse(Response response) {
     final json = jsonDecode(response.body);
 

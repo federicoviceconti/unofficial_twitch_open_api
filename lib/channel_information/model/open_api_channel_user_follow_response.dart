@@ -3,6 +3,8 @@ import 'dart:convert';
 import 'package:http/http.dart';
 import 'package:unofficial_twitch_http/models/http_result.dart';
 
+/// Response model for the methods on
+/// [OpenApiChannelUserFollowResponse] class
 class OpenApiChannelUserFollowResponse extends BaseHttpResponse {
   int? total;
   List<UserFollow> userFollowList;
@@ -16,6 +18,8 @@ class OpenApiChannelUserFollowResponse extends BaseHttpResponse {
     this.total,
   });
 
+  /// Convert the HTTP response into a [OpenApiChannelUserFollowResponse]
+  /// instance
   static OpenApiChannelUserFollowResponse fromHttpResponse(Response response) {
     final json = jsonDecode(response.body);
 
@@ -29,6 +33,8 @@ class OpenApiChannelUserFollowResponse extends BaseHttpResponse {
     }
   }
 
+  /// Convert the body of the HTTP response into a
+  /// [OpenApiChannelUserFollowResponse] instance
   static OpenApiChannelUserFollowResponse fromJson(Map<String, dynamic>? json) {
     List<dynamic>? data = json?['data'];
 

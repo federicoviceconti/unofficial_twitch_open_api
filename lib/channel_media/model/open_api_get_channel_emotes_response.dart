@@ -1,8 +1,9 @@
 import 'dart:convert';
 
-import 'package:unofficial_twitch_http/models/http_result.dart';
 import 'package:http/http.dart';
+import 'package:unofficial_twitch_http/models/http_result.dart';
 
+/// Response model for the methods on [TwitchChannelMedia] class
 class OpenApiGetChannelMediaResponse extends BaseHttpResponse {
   List<ChannelMediaData> channelMediaDataList;
   final String? template;
@@ -14,6 +15,8 @@ class OpenApiGetChannelMediaResponse extends BaseHttpResponse {
     this.template,
   });
 
+  /// Convert the HTTP response into a [OpenApiGetChannelMediaResponse]
+  /// instance
   static OpenApiGetChannelMediaResponse fromHttpResponse(Response response) {
     final json = jsonDecode(response.body);
 
@@ -27,6 +30,8 @@ class OpenApiGetChannelMediaResponse extends BaseHttpResponse {
     }
   }
 
+  /// Convert the body of the HTTP response into a
+  /// [OpenApiGetChannelMediaResponse] instance
   static OpenApiGetChannelMediaResponse fromJson(Map<String, dynamic>? json) {
     List<dynamic>? data = json?['data'];
 

@@ -3,6 +3,8 @@ import 'dart:convert';
 import 'package:http/http.dart';
 import 'package:unofficial_twitch_http/models/http_result.dart';
 
+/// Response model for the methods on
+/// [OpenApiChannelStreamScheduleResponse] class
 class OpenApiChannelStreamScheduleResponse extends BaseHttpResponse {
   final List<SegmentResult> segmentResultList;
   final String? broadcasterId;
@@ -20,6 +22,8 @@ class OpenApiChannelStreamScheduleResponse extends BaseHttpResponse {
     String? message,
   }) : super(status: status, message: message);
 
+  /// Convert the HTTP response into a [OpenApiChannelStreamScheduleResponse]
+  /// instance
   static OpenApiChannelStreamScheduleResponse fromHttpResponse(
       Response response) {
     final json = jsonDecode(response.body);
@@ -34,6 +38,8 @@ class OpenApiChannelStreamScheduleResponse extends BaseHttpResponse {
     }
   }
 
+  /// Convert the body of the HTTP response into a
+  /// [OpenApiChannelStreamScheduleResponse] instance
   static OpenApiChannelStreamScheduleResponse fromJson(
       Map<String, dynamic>? json) {
     List<Map<String, dynamic>?>? segments = json?['data']?['segments'];

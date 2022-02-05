@@ -3,6 +3,7 @@ import 'dart:convert';
 import 'package:http/http.dart';
 import 'package:unofficial_twitch_http/models/http_result.dart';
 
+/// Response model for the methods on [TwitchChannelMedia] class
 class OpenApiGetVideosResponse extends BaseHttpResponse {
   List<VideoData> videoList;
   String? pagination;
@@ -14,6 +15,8 @@ class OpenApiGetVideosResponse extends BaseHttpResponse {
     this.videoList = const [],
   });
 
+  /// Convert the HTTP response into a [OpenApiGetVideosResponse]
+  /// instance
   static OpenApiGetVideosResponse fromHttpResponse(Response response) {
     final json = jsonDecode(response.body);
 
@@ -27,6 +30,8 @@ class OpenApiGetVideosResponse extends BaseHttpResponse {
     }
   }
 
+  /// Convert the body of the HTTP response into a [OpenApiGetVideosResponse]
+  /// instance
   static OpenApiGetVideosResponse fromJson(Map<String, dynamic>? json) {
     List<dynamic>? data = json?['data'];
 

@@ -3,6 +3,7 @@ import 'dart:convert';
 import 'package:http/http.dart';
 import 'package:unofficial_twitch_http/models/http_result.dart';
 
+/// Response model for the searchStreams method on [TwitchSearch] class
 class OpenApiGetStreamsResponse extends BaseHttpResponse {
   final List<StreamData> streamList;
   final String? pagination;
@@ -17,6 +18,8 @@ class OpenApiGetStreamsResponse extends BaseHttpResponse {
           message: message,
         );
 
+  /// Convert the body of the HTTP response into a [OpenApiGetStreamsResponse]
+  /// instance
   static OpenApiGetStreamsResponse fromJson(Map<String, dynamic>? json) {
     List? data = json?['data'];
 
@@ -40,6 +43,7 @@ class OpenApiGetStreamsResponse extends BaseHttpResponse {
     );
   }
 
+  /// Convert the HTTP response into a [OpenApiGetStreamsResponse] instance
   static OpenApiGetStreamsResponse fromHttpResponse(Response response) {
     final json = jsonDecode(response.body);
 

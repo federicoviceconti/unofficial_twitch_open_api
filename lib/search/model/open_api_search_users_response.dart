@@ -3,6 +3,7 @@ import 'dart:convert';
 import 'package:http/http.dart';
 import 'package:unofficial_twitch_http/models/http_result.dart';
 
+/// Response model for the searchUser method on [TwitchSearch] class
 class OpenApiSearchUsersResponse extends BaseHttpResponse {
   final List<SearchUser> searchUserList;
 
@@ -15,6 +16,8 @@ class OpenApiSearchUsersResponse extends BaseHttpResponse {
           message: message,
         );
 
+  /// Convert the body of the HTTP response into a [OpenApiSearchUsersResponse]
+  /// instance
   static OpenApiSearchUsersResponse fromJson(Map<String, dynamic>? json) {
     List? data = json?['data'];
 
@@ -33,6 +36,7 @@ class OpenApiSearchUsersResponse extends BaseHttpResponse {
     );
   }
 
+  /// Convert the HTTP response into a [OpenApiSearchUsersResponse] instance
   static OpenApiSearchUsersResponse fromHttpResponse(Response response) {
     final json = jsonDecode(response.body);
 

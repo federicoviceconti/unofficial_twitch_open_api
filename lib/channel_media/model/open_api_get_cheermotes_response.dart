@@ -1,8 +1,9 @@
 import 'dart:convert';
 
-import 'package:unofficial_twitch_http/models/http_result.dart';
 import 'package:http/http.dart';
+import 'package:unofficial_twitch_http/models/http_result.dart';
 
+/// Response model for the methods on [TwitchChannelMedia] class
 class OpenApiGetCheermotesResponse extends BaseHttpResponse {
   List<CheermoteData> cheermoteDataList;
   String? pagination;
@@ -14,6 +15,8 @@ class OpenApiGetCheermotesResponse extends BaseHttpResponse {
     this.cheermoteDataList = const [],
   });
 
+  /// Convert the HTTP response into a [OpenApiGetCheermotesResponse]
+  /// instance
   static OpenApiGetCheermotesResponse fromHttpResponse(Response response) {
     final json = jsonDecode(response.body);
 
@@ -27,6 +30,8 @@ class OpenApiGetCheermotesResponse extends BaseHttpResponse {
     }
   }
 
+  /// Convert the body of the HTTP response into a [OpenApiGetCheermotesResponse]
+  /// instance
   static OpenApiGetCheermotesResponse fromJson(Map<String, dynamic>? json) {
     List<dynamic>? data = json?['data'];
 

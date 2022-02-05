@@ -3,6 +3,7 @@ import 'dart:convert';
 import 'package:http/http.dart';
 import 'package:unofficial_twitch_http/models/http_result.dart';
 
+/// Response model for the searchChannels method on [TwitchSearch] class
 class OpenApiSearchChannelsResponse extends BaseHttpResponse {
   final List<SearchChannel> searchChannelList;
   final String? pagination;
@@ -22,6 +23,8 @@ class OpenApiSearchChannelsResponse extends BaseHttpResponse {
     return 'OpenApiSearchChannelsResponse{searchChannelList: $searchChannelList, pagination: $pagination}';
   }
 
+  /// Convert the body of the HTTP response into a
+  /// [OpenApiSearchChannelsResponse] instance
   static OpenApiSearchChannelsResponse fromJson(Map<String, dynamic>? json) {
     List? data = json?['data'];
 
@@ -41,6 +44,7 @@ class OpenApiSearchChannelsResponse extends BaseHttpResponse {
     );
   }
 
+  /// Convert the HTTP response into a [OpenApiSearchChannelsResponse] instance
   static OpenApiSearchChannelsResponse fromHttpResponse(Response response) {
     final json = jsonDecode(response.body);
 

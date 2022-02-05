@@ -3,6 +3,8 @@ import 'dart:convert';
 import 'package:http/http.dart';
 import 'package:unofficial_twitch_http/models/http_result.dart';
 
+/// Response model for the methods on [TwitchChannelInformation]
+/// class
 class OpenApiChannelInformationResponse extends BaseHttpResponse {
   final List<ChannelInformationResult> channelList;
 
@@ -20,6 +22,8 @@ class OpenApiChannelInformationResponse extends BaseHttpResponse {
     return 'OpenApiChannelInformationResponse{channelList: $channelList}';
   }
 
+  /// Convert the body of the HTTP response into a
+  /// [OpenApiChannelInformationResponse] instance
   static OpenApiChannelInformationResponse fromJson(
       Map<String, dynamic>? json) {
     List? data = json?['data'];
@@ -42,6 +46,8 @@ class OpenApiChannelInformationResponse extends BaseHttpResponse {
     );
   }
 
+  /// Convert the HTTP response into a [OpenApiChannelInformationResponse]
+  /// instance
   static OpenApiChannelInformationResponse fromHttpResponse(Response response) {
     final json = jsonDecode(response.body);
 

@@ -1,8 +1,10 @@
 import 'dart:convert';
 
-import 'package:unofficial_twitch_http/models/http_result.dart';
 import 'package:http/http.dart';
+import 'package:unofficial_twitch_http/models/http_result.dart';
 
+/// Response model for the methods on
+/// [OpenApiChannelTeamsResponse] class
 class OpenApiChannelTeamsResponse extends BaseHttpResponse {
   final List<TeamInfo> teams;
 
@@ -12,6 +14,8 @@ class OpenApiChannelTeamsResponse extends BaseHttpResponse {
     String? message,
   }) : super(status: status, message: message);
 
+  /// Convert the HTTP response into a [OpenApiChannelTeamsResponse]
+  /// instance
   static OpenApiChannelTeamsResponse fromHttpResponse(Response response) {
     final json = jsonDecode(response.body);
 
@@ -25,6 +29,8 @@ class OpenApiChannelTeamsResponse extends BaseHttpResponse {
     }
   }
 
+  /// Convert the body of the HTTP response into a
+  /// [OpenApiChannelTeamsResponse] instance
   static OpenApiChannelTeamsResponse fromJson(Map<String, dynamic>? json) {
     List<Map<String, dynamic>?>? teams = json?['data'];
 

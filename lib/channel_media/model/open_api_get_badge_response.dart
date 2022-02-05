@@ -1,8 +1,9 @@
 import 'dart:convert';
 
-import 'package:unofficial_twitch_http/models/http_result.dart';
 import 'package:http/http.dart';
+import 'package:unofficial_twitch_http/models/http_result.dart';
 
+/// Response model for the methods on [TwitchChannelMedia] class
 class OpenApiGetBadgeResponse extends BaseHttpResponse {
   List<BadgeData> badgeDataList;
 
@@ -12,6 +13,8 @@ class OpenApiGetBadgeResponse extends BaseHttpResponse {
     this.badgeDataList = const [],
   });
 
+  /// Convert the HTTP response into a [OpenApiGetBadgeResponse]
+  /// instance
   static OpenApiGetBadgeResponse fromHttpResponse(Response response) {
     final json = jsonDecode(response.body);
 
@@ -25,6 +28,8 @@ class OpenApiGetBadgeResponse extends BaseHttpResponse {
     }
   }
 
+  /// Convert the body of the HTTP response into a [OpenApiGetBadgeResponse]
+  /// instance
   static OpenApiGetBadgeResponse fromJson(Map<String, dynamic>? json) {
     List<dynamic>? data = json?['data'];
 
