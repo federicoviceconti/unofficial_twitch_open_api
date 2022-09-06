@@ -1,4 +1,4 @@
-# 📦 unofficial_twitch_auth
+# 📦 unofficial_twitch_open_api
 
 This package allows to retrieve all the data by the newest Twitch APIs.
 
