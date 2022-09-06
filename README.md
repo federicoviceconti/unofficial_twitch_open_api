@@ -2,8 +2,6 @@
 
 This package allows to retrieve all the data by the newest Twitch APIs.
 
-Available on pub.dev: https://pub.dev/packages/unofficial_twitch_open_api
-
 ## Getting started
 
 To make the APIs works, you need to configure your application on Twitch Dev Console. If you don't
