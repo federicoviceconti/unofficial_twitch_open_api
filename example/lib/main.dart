@@ -45,35 +45,37 @@ class _OpenApiExampleWidgetState extends State<OpenApiExampleWidget> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: Column(
-        children: [
-          ElevatedButton(
-            onPressed: () async {
-              final channelInfo = manager?.of<TwitchChannelInformation>(
-                bearerToken: 'your_secret_token',
-              );
+    return SafeArea(
+      child: Scaffold(
+        body: Column(
+          children: [
+            ElevatedButton(
+              onPressed: () async {
+                final channelInfo = manager?.of<TwitchChannelInformation>(
+                  bearerToken: 'your_secret_token',
+                );
 
-              final responseInfo = await channelInfo?.getChannelInformation(
-                broadcasterId: 'broadcaster_id',
-              );
+                final responseInfo = await channelInfo?.getChannelInformation(
+                  broadcasterId: 'broadcaster_id',
+                );
 
-              setState(() {
-                infoResult = responseInfo?.result?.channelList ?? [];
-              });
-            },
-            child: const Text('Get random info'),
-          ),
-          const SizedBox(height: 16),
-          ListView.separated(
-            separatorBuilder: (_, __) => const Divider(),
-            itemBuilder: (_, index) => ChannelInfoWidget(
-              infoResult[index],
+                setState(() {
+                  infoResult = responseInfo?.result?.channelList ?? [];
+                });
+              },
+              child: const Text('Get random info'),
             ),
-            shrinkWrap: true,
-            itemCount: infoResult.length,
-          ),
-        ],
+            const SizedBox(height: 16),
+            ListView.separated(
+              separatorBuilder: (_, __) => const Divider(),
+              itemBuilder: (_, index) => ChannelInfoWidget(
+                infoResult[index],
+              ),
+              shrinkWrap: true,
+              itemCount: infoResult.length,
+            ),
+          ],
+        ),
       ),
     );
   }
