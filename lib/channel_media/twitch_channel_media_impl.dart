@@ -8,7 +8,7 @@ import 'package:unofficial_twitch_open_api/channel_media/twitch_channel_media.da
 import 'package:unofficial_twitch_open_api/core/open_api_channel_constants.dart';
 
 /// Implementation of the class [TwitchChannelMedia]. To make it works,
-/// it's needed the [token] for the authenticated resources and the [clientId].
+/// [clientId] is mandatory, while [token] is needed for the auth resources.
 class TwitchChannelMediaImpl extends TwitchChannelMedia {
   TwitchChannelMediaImpl({
     String? token,

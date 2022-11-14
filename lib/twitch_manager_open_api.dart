@@ -22,7 +22,7 @@ class TwitchManagerOpenApi {
     required this.clientId,
   });
 
-  /// Factory method, it's needed the [clientId] to work
+  /// Factory method, It needs the [clientId] for working correctly
   factory TwitchManagerOpenApi({
     required String? clientId,
   }) {
@@ -62,7 +62,7 @@ class TwitchManagerOpenApi {
         ) as T;
       default:
         throw UnsupportedError(
-          'typeof($T) is not implemented in TwitchManagerOpenApi.getInstance',
+          'Type of $T is not implemented in TwitchManagerOpenApi.getInstance',
         );
     }
   }

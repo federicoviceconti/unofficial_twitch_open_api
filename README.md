@@ -10,8 +10,8 @@ steps [here](https://github.com/federicoviceconti/unofficial_twitch_auth#registe
 .
 
 To access to the Twitch's data, was implemented the
-class [TwitchManagerOpenApi](/lib/twitch_manager_open_api.dart). This utility create an instance of
-the available subclass of [BaseTwitchOpenApi](/lib/core/base_twitch_open_api.dart).
+class [TwitchManagerOpenApi](./lib/twitch_manager_open_api.dart). This utility create an instance of
+the available subclass of [BaseTwitchOpenApi](./lib/core/base_twitch_open_api.dart).
 
 ```dart
 /// You can create the instance of [TwitchManagerOpenApi] via provider or get_it

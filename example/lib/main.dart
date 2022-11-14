@@ -32,13 +32,20 @@ class OpenApiExampleWidget extends StatefulWidget {
 }
 
 class _OpenApiExampleWidgetState extends State<OpenApiExampleWidget> {
+  String? _bearerToken;
+  String? _broadcasterId;
+
+  final TextEditingController _bearerTokenController = TextEditingController();
+  final TextEditingController _broadcasterIdController =
+      TextEditingController();
+
   TwitchManagerOpenApi? manager;
   List<ChannelInformationResult> infoResult = [];
 
   @override
   void initState() {
     manager = TwitchManagerOpenApi(
-      clientId: 'your_secret_client_id',
+      clientId: const String.fromEnvironment('API_KEY'),
     );
     super.initState();
   }
@@ -49,14 +56,28 @@ class _OpenApiExampleWidgetState extends State<OpenApiExampleWidget> {
       child: Scaffold(
         body: Column(
           children: [
+            TextField(
+              controller: _bearerTokenController,
+              onChanged: (value) => setState(() {
+                _bearerToken = value;
+              }),
+            ),
+            const SizedBox(height: 16),
+            TextField(
+              controller: _broadcasterIdController,
+              onChanged: (value) => setState(() {
+                _broadcasterId = value;
+              }),
+            ),
+            const SizedBox(height: 16),
             ElevatedButton(
               onPressed: () async {
                 final channelInfo = manager?.of<TwitchChannelInformation>(
-                  bearerToken: 'your_secret_token',
+                  bearerToken: _bearerToken,
                 );
 
                 final responseInfo = await channelInfo?.getChannelInformation(
-                  broadcasterId: 'broadcaster_id',
+                  broadcasterId: _broadcasterId ?? '',
                 );
 
                 setState(() {
